@@ -1,0 +1,30 @@
+DarkGoldenRod ya tiene una primera versión funcionando. 🟠
+Es mi proyecto de clase de Sistemas de Gestión Empresarial y todavía está en desarrollo.
+
+En esta unidad de DAM estamos trabajando la instalación y configuración de sistemas ERP-CRM. A partir de DarkOrange, el ejemplo de clase, estoy dando forma a una versión propia con otra identidad visual, manteniendo la arquitectura y el avance funcional de la unidad.
+
+El nombre elegido es DarkGoldenRod y el dorado tiene bastante presencia en la aplicación: cabecera, navegación, portada e instalador. También incluye una web que presenta el software y explica cómo ponerlo en marcha.
+
+En esta primera etapa ya permite:
+
+• Consultar, crear, editar y eliminar registros.
+• Trabajar con clientes, productos, empleados, proveedores, componentes, pedidos y líneas de pedido.
+• Generar formularios a partir de las columnas de cada tabla.
+• Crear tablas nuevas escribiendo un modelo de texto en el instalador.
+• Exportar la información de la base de datos en formato JSON.
+
+Para practicar estas operaciones, la base contiene datos ficticios del sector aeronáutico. La demostración del vídeo utiliza una copia de prueba.
+
+El proyecto utiliza HTML y CSS para la presentación, JavaScript para la interacción y las peticiones con fetch, PHP para la API y SQLite para guardar los datos. Sin frameworks, siguiendo la estructura y la forma de trabajar que estamos viendo en clase.
+
+El objetivo de esta etapa es entender el recorrido completo de un dato: desde que se escribe en un formulario hasta que se valida, se guarda y vuelve a aparecer en pantalla.
+
+También hay casos que obligan a mirar las relaciones entre las tablas. Por ejemplo, un pedido no debería guardarse con un cliente que no existe, y borrar un proveedor no puede dejar componentes apuntando a un registro inexistente. La aplicación comprueba estas relaciones y muestra un aviso cuando una operación no se puede completar.
+
+Todavía queda camino por recorrer. Los módulos de Ventas, RR. HH., Facturación y Compras están previstos, pero sus procesos de negocio aún no están implementados. La autenticación, los permisos y la emisión de facturas quedan para avances posteriores.
+
+Comparto este recorrido por el estado actual de DarkGoldenRod para documentar el progreso del proyecto. La idea es seguir ampliándolo a medida que avancemos en las próximas unidades.
+
+Para quienes han trabajado con un ERP: ¿qué priorizarían en la siguiente etapa, gestión de usuarios, movimientos de stock o facturación?
+
+#DAM #ERP #DesarrolloWeb #PHP #SQLite
