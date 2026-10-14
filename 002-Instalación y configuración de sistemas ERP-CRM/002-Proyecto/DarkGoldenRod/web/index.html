@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#B8860B">
+		<meta name="description" content="DarkGoldenRod: un proyecto ERP en desarrollo con gestión de registros, API PHP, SQLite e instalador de tablas.">
+		<title>DarkGoldenRod · Gestión con claridad</title>
+		<link rel="stylesheet" href="estilo.css">
+		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='5' fill='%23B8860B'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='15' fill='%23201b0d'%3EDG%3C/text%3E%3C/svg%3E">
+	</head>
+	<body>
+		<a class="saltar" href="#presentacion">Ir al contenido</a>
+		<header class="cabecera">
+			<a class="marca" href="index.html"><span class="simbolo" aria-hidden="true">DG</span><span data-nombre>DarkGoldenRod</span></a>
+			<nav aria-label="Navegación principal"><a href="#funciones">Funciones</a><a href="#estructura">Arquitectura</a><a href="#empezar">Puesta en marcha</a></nav>
+			<a class="enlace-aplicacion" href="../index.html">Abrir el ERP <span aria-hidden="true">↗</span></a>
+		</header>
+		<main>
+			<section class="hero" id="presentacion">
+				<div class="contenedor">
+					<p class="etiqueta">PROYECTO ERP / SISTEMAS DE GESTIÓN EMPRESARIAL</p>
+					<h1>La información,<br><em>bien organizada.</em></h1>
+					<p class="presentacion"><span data-nombre>DarkGoldenRod</span> reúne los registros de clientes, productos y equipos en un espacio claro. Una base de gestión que crece con lo que aprendemos en clase.</p>
+					<div class="acciones-hero"><a class="boton" href="../index.html">Entrar en la aplicación <span aria-hidden="true">↗</span></a><a class="boton secundario" href="#funciones">Descubrir el proyecto <span aria-hidden="true">↓</span></a></div>
+					<p class="nota-hero">Unidad 02 · Proyecto en desarrollo · Datos ficticios</p>
+					<!-- Esta vista es ilustrativa; la aplicación real se abre desde los enlaces. -->
+					<div class="vista-aplicacion" aria-label="Vista ilustrativa de clientes con datos ficticios">
+						<div class="barra-vista"><span><b aria-hidden="true">DG</b> <span data-nombre>DarkGoldenRod</span></span><small>VISTA ILUSTRATIVA</small></div>
+						<div class="interior-vista">
+							<div class="menu-vista" aria-hidden="true"><span>Vista general</span><strong>Clientes</strong><span>Componentes</span><span>Empleados</span><span>Pedidos</span><span>Productos</span><span>Proveedores</span></div>
+							<div class="contenido-vista"><p>ENTIDADES / CLIENTES</p><h2>Clientes</h2><div class="tabla-vista"><table><caption>Ejemplo con datos ficticios</caption><thead><tr><th>Nombre</th><th>País</th><th>ID</th></tr></thead><tbody><tr><td>Aurora Aero</td><td>España</td><td>01</td></tr><tr><td>Sierra Wings</td><td>Portugal</td><td>02</td></tr><tr><td>Meridiana Air</td><td>Italia</td><td>03</td></tr><tr><td>Vela Aeronautics</td><td>Francia</td><td>04</td></tr></tbody></table></div><p class="pie-vista">Consultar · Crear · Editar · Eliminar</p></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<div class="tecnologias"><div class="contenedor"><span>HTML + CSS</span><span>JavaScript</span><span>PHP</span><span>SQLite</span><small>Cliente y servidor separados</small></div></div>
+			<section class="funciones contenedor" id="funciones">
+				<div class="cabecera-seccion"><p class="etiqueta">EL AVANCE DE ESTA UNIDAD</p><h2>Una primera base.<br>Funciones concretas.</h2><p>El proyecto llega hasta la gestión de registros. Cada entidad utiliza la misma API y los formularios se construyen desde las columnas de la base de datos.</p></div>
+				<div class="lista-funciones">
+					<article><span class="numero">01 / REGISTROS</span><h3>Consultar y actualizar</h3><p>Crear, consultar, editar y eliminar registros de las siete entidades del modelo aeronáutico de clase.</p><span class="detalle">Clientes · Productos · Equipos · Pedidos</span></article>
+					<article><span class="numero">02 / INSTALACIÓN</span><h3>De texto a tablas</h3><p>Escribir el nombre de cada tabla y sus campos debajo, precedidos por un guion. El instalador crea las tablas en SQLite.</p><span class="detalle">El formato de la unidad, con un campo id automático</span></article>
+					<article><span class="numero">03 / DATOS</span><h3>Conservar y exportar</h3><p>Guardar los cambios en una base local independiente y exportar todas sus tablas en formato JSON.</p><span class="detalle">Una instalación · Su propia base de datos</span></article>
+				</div>
+			</section>
+			<section class="pendiente"><div class="contenedor"><div><p class="etiqueta">LOS SIGUIENTES PASOS</p><h2>En construcción.</h2><p>Ventas, recursos humanos, facturación y compras aparecen como módulos previstos. Sus procesos de negocio se desarrollarán en futuras unidades.</p><p>Autenticación, permisos y emisión de facturas también quedan para avances posteriores.</p></div><div class="lista-modulos"><span>Ventas <small>Previsto</small></span><span>RR. HH. <small>Previsto</small></span><span>Facturación <small>Previsto</small></span><span>Compras <small>Previsto</small></span></div></div></section>
+			<section class="estructura contenedor" id="estructura">
+				<div class="cabecera-seccion"><p class="etiqueta">LA ESTRUCTURA DE CLASE</p><h2>Una pieza para cada tarea.</h2><p>HTML, CSS y JavaScript en el cliente; PHP y SQLite en el servidor. Sin frameworks, con funciones sencillas y comentarios en español.</p></div>
+				<div class="arquitectura"><div class="flujo"><div><span>01 / CLIENTE</span><h3>La interfaz</h3><p>HTML y CSS presentan las tablas y los formularios. JavaScript envía las peticiones con fetch.</p></div><span class="conector" aria-hidden="true">↓</span><div><span>02 / API</span><h3>Las operaciones</h3><p>PHP organiza las rutas con switch y devuelve las respuestas en JSON.</p></div><span class="conector" aria-hidden="true">↓</span><div><span>03 / DATOS</span><h3>La persistencia</h3><p>SQLite conserva los registros, los tipos de las columnas y las relaciones del modelo.</p></div></div><div class="carpetas"><p>DARKGOLDENROD /</p><ul><li><b>api/</b><span>Instalador y rutas CRUD</span></li><li><b>data/</b><span>Configuración, SQL y base de datos</span></li><li><b>servicios/</b><span>Salida JSON y entrada reservada</span></li><li><b>modulos/</b><span>Reservada para próximas unidades</span></li><li><b>nucleo/</b><span>Reservada para próximas unidades</span></li><li><b>util/</b><span>Reservada para próximas unidades</span></li><li><b>web/</b><span>Presentación del proyecto</span></li></ul><p class="nota-carpetas">Los archivos principales siguen en la raíz, como en el proyecto de la unidad.</p></div></div>
+			</section>
+			<section class="empezar" id="empezar"><div class="contenedor"><div><p class="etiqueta">PUESTA EN MARCHA</p><h2>Abre tu espacio<br>de gestión.</h2><p>La entrega incluye una base preparada con datos ficticios. El instalador permite crear tablas propias escribiendo el modelo de texto de clase.</p><a class="boton" href="../instalador.html">Abrir el instalador <span aria-hidden="true">↗</span></a></div><ol class="pasos"><li><span>01</span><div><h3>Comprueba PHP</h3><p>Necesitas la extensión SQLite3 habilitada.</p></div></li><li><span>02</span><div><h3>Arranca el proyecto</h3><p>Abre una terminal en la carpeta DarkGoldenRod:</p><code>php -S localhost:8000</code></div></li><li><span>03</span><div><h3>Selecciona una entidad</h3><p>Entra en localhost:8000 y empieza a gestionar sus registros.</p></div></li></ol></div></section>
+		</main>
+		<footer class="pie"><div class="contenedor"><a class="marca" href="index.html"><span class="simbolo" aria-hidden="true">DG</span><span data-nombre>DarkGoldenRod</span></a><p>Gestión con claridad.<br><span>Proyecto académico en desarrollo · Unidad 02</span></p><a href="../index.html">Abrir la aplicación ↗</a></div></footer>
+		<script src="codigo.js"></script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#122d43">
+		<title>SteelBlue · Gestión empresarial</title>
+		<link rel="stylesheet" href="estilo.css">
+		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%234682B4'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='white'%3ESB%3C/text%3E%3C/svg%3E">
+	</head>
+	<body>
+		<a class="saltar" href="#contenido">Ir al contenido</a>
+		<header class="barra-superior">
+			<a class="marca" href="web/index.html" aria-label="Web de SteelBlue">
+				<span class="simbolo" aria-hidden="true">SB</span>
+				<span data-nombre>SteelBlue</span>
+				<span class="marca-detalle">ERP</span>
+			</a>
+			<div class="enlaces-superiores">
+				<a href="web/index.html">Sobre <span data-nombre>SteelBlue</span> <span aria-hidden="true">↗</span></a>
+				<span class="entorno"><span class="punto"></span> Entorno local</span>
+			</div>
+		</header>
+		<main class="aplicacion">
+			<aside class="barra-lateral">
+				<button class="enlace-inicio activo" id="inicio" type="button"><span aria-hidden="true">⌂</span> Inicio</button>
+				<div class="grupo-menu">
+					<p class="titulo-menu">DATOS DE LA EMPRESA</p>
+					<nav id="entidades" aria-label="Entidades"><p class="texto-menu">Cargando entidades…</p></nav>
+				</div>
+				<div class="grupo-menu grupo-modulos">
+					<p class="titulo-menu">MÓDULOS PREVISTOS <span class="ayuda-modulos" title="Estos módulos se desarrollarán en próximas unidades">ⓘ</span></p>
+					<nav id="modulos" aria-label="Módulos previstos"></nav>
+				</div>
+				<div class="pie-menu">
+					<a href="servicios/salida.php" target="_blank" rel="noopener">Exportar datos JSON <span aria-hidden="true">↗</span></a>
+					<a href="instalador.html">Instalador <span aria-hidden="true">→</span></a>
+					<p>SteelBlue · Proyecto de unidad 2</p>
+				</div>
+			</aside>
+			<div class="area-trabajo">
+				<div id="mensaje" class="mensaje" role="status" aria-live="polite" hidden>
+					<span id="texto-mensaje"></span>
+					<button id="cerrar-mensaje" type="button" aria-label="Cerrar aviso">×</button>
+				</div>
+				<section id="contenido" tabindex="-1" aria-label="Contenido de gestión">
+					<div class="cargando" role="status"><span class="indicador-carga"></span> Preparando tu espacio de trabajo…</div>
+				</section>
+				<footer class="pie-contenido"><span>Un lugar para cada dato.</span><span data-nombre>SteelBlue</span></footer>
+			</div>
+		</main>
+		<dialog id="confirmacion" aria-labelledby="titulo-confirmacion" aria-describedby="detalle-confirmacion">
+			<span class="icono-dialogo" aria-hidden="true">!</span>
+			<h2 id="titulo-confirmacion">Eliminar registro</h2>
+			<p id="detalle-confirmacion"></p>
+			<p class="nota-dialogo">Esta acción no se puede deshacer.</p>
+			<form method="dialog" class="acciones-dialogo">
+				<button class="boton secundario" value="cancelar" autofocus>Cancelar</button>
+				<button class="boton peligro" value="eliminar">Eliminar registro</button>
+			</form>
+		</dialog>
+		<script src="codigo.js"></script>
+	</body>
+</html>

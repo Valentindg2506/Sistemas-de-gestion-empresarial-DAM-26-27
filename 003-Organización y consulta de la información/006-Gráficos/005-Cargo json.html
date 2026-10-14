@@ -1,0 +1,27 @@
+<!Doctype html>
+<html>
+	<head>
+		<style>
+			#contenedor{display:flex;align-items:flex-end;}
+			.barra{background:red;width:20px;border-radius:8px;margin:6px;color:white;padding:10px;}
+		</style>
+	</head>
+	<body>
+		<div id="contenedor"></div>
+		<script>
+			let datos = [
+				{"leyenda":"valor1","valor":20},
+				{"leyenda":"valor2","valor":46},
+				{"leyenda":"valor3","valor":92},
+				{"leyenda":"valor4","valor":75}
+			];
+			let contenedor = document.querySelector("#contenedor")
+			datos.forEach(function(dato){
+				contenedor.innerHTML += `
+					<div class="barra" style="height:`+dato.valor+`px;">
+						`+dato.leyenda+`
+					</div>`;
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="theme-color" content="#B8860B">
+		<title>DarkGoldenRod · Gestión empresarial</title>
+		<link rel="stylesheet" href="estilo.css">
+		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='5' fill='%23B8860B'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='15' fill='%23302d24'%3EDG%3C/text%3E%3C/svg%3E">
+	</head>
+	<body>
+		<a class="saltar" href="#contenido">Ir al contenido</a>
+		<!-- La cabecera identifica el proyecto; los dos menús quedan a la izquierda. -->
+		<header class="barra-superior">
+			<a class="marca" href="web/index.html" aria-label="Web de DarkGoldenRod">
+				<span class="simbolo" aria-hidden="true">DG</span>
+				<span data-nombre>DarkGoldenRod</span>
+				<span class="marca-detalle">ERP</span>
+			</a>
+			<div class="enlaces-superiores">
+				<a href="web/index.html">Conocer el proyecto <span aria-hidden="true">↗</span></a>
+				<span class="entorno"><span class="punto"></span> Local</span>
+			</div>
+		</header>
+		<main class="aplicacion">
+			<aside class="barra-lateral">
+				<p class="titulo-espacio">ESPACIO DE GESTIÓN</p>
+				<button class="enlace-inicio activo" id="inicio" type="button"><span aria-hidden="true">⌂</span> Vista general</button>
+				<div class="grupo-menu">
+					<p class="titulo-menu">ENTIDADES</p>
+					<nav id="entidades" aria-label="Entidades"><p class="texto-menu">Cargando entidades…</p></nav>
+				</div>
+				<div class="grupo-menu grupo-modulos">
+					<p class="titulo-menu">MÓDULOS PREVISTOS</p>
+					<nav id="modulos" aria-label="Módulos previstos"></nav>
+				</div>
+				<div class="pie-menu">
+					<a href="instalador.html">Crear tablas <span aria-hidden="true">↗</span></a>
+					<a href="servicios/salida.php" target="_blank" rel="noopener">Exportar JSON <span aria-hidden="true">↗</span></a>
+					<p>Proyecto académico <span>Unidad 02</span></p>
+				</div>
+			</aside>
+			<div class="area-trabajo">
+				<div id="mensaje" class="mensaje" role="status" aria-live="polite" hidden>
+					<span id="texto-mensaje"></span>
+					<button id="cerrar-mensaje" type="button" aria-label="Cerrar aviso">×</button>
+				</div>
+				<section id="contenido" tabindex="-1" aria-label="Contenido de gestión">
+					<div class="cargando" role="status"><span class="indicador-carga"></span> Cargando el espacio de gestión…</div>
+				</section>
+				<footer class="pie-contenido"><span data-nombre>DarkGoldenRod</span><span>Gestión con claridad.</span></footer>
+			</div>
+		</main>
+		<!-- El borrado se confirma antes de enviar la petición a PHP. -->
+		<dialog id="confirmacion" aria-labelledby="titulo-confirmacion" aria-describedby="detalle-confirmacion">
+			<span class="icono-dialogo" aria-hidden="true">!</span>
+			<h2 id="titulo-confirmacion">Confirmar eliminación</h2>
+			<p id="detalle-confirmacion"></p>
+			<p class="nota-dialogo">El registro se borrará de la base de datos.</p>
+			<form method="dialog" class="acciones-dialogo">
+				<button class="boton secundario" value="cancelar" autofocus>Conservar registro</button>
+				<button class="boton peligro" value="eliminar">Eliminar</button>
+			</form>
+		</dialog>
+		<script src="codigo.js"></script>
+	</body>
+</html>

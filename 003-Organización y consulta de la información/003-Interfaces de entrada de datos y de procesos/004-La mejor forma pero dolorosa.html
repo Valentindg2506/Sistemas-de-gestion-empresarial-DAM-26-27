@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+	</head>
+	<body>
+		<form>
+
+		</form>
+		<script>
+			let controles = [
+				'Nombres',
+				'Apellidos',
+				'Email',
+				'Direccion',
+				'Ciudad',
+				'Cp'
+			];
+			
+			let formulario = document.querySelector("form")
+			controles.forEach(function(uncontrol){
+				let control = document.createElement("div")
+				control.classList.add("control")
+				let etiqueta = document.createElement("label")
+				etiqueta.textContent = uncontrol
+				let entrada = document.createElement("input")
+				entrada.setAttribute("name",uncontrol)
+				control.appendChild(etiqueta)
+				control.appendChild(entrada)
+				formulario.appendChild(control)
+			})
+		</script>
+	</body>
+</html>
