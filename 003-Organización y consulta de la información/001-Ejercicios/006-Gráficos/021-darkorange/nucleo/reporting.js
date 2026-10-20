@@ -53,7 +53,7 @@ class DarkorangeReporting {
       <div class="reporting-documento">
         <article class="reporting-a4">
           <header class="reporting-cabecera">
-            <div><small>JOCARSA · DARKORANGE</small><h1>Reporte general</h1></div>
+            <div><small>Valentindg · DARKORANGE</small><h1>Reporte general</h1></div>
             <div class="reporting-fecha">${this.esc(fecha)}</div>
           </header>
           <div class="reporting-resumen">
