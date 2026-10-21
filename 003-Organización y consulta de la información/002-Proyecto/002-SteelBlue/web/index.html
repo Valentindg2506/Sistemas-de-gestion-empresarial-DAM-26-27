@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+		<meta name="description" content="SteelBlue, un ERP con gestión de registros, dashboard, gráficas, informes y exportaciones CSV, HTML, Markdown y JSON.">
+		<meta name="theme-color" content="#4682B4">
+		<title>SteelBlue · Un lugar para cada dato</title>
+		<script src="../nucleo/interfaz.js?v=presentacion-3"></script>
+		<link rel="stylesheet" href="../tokens.css?v=presentacion-3">
+		<link rel="stylesheet" href="estilo.css?v=presentacion-3">
+		<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%234682B4'/%3E%3Ctext x='20' y='26' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='16' fill='white'%3ESB%3C/text%3E%3C/svg%3E">
+	</head>
+	<body>
+		<a class="saltar" href="#contenido">Ir al contenido</a>
+		<header class="cabecera">
+			<a class="marca" href="#"><span class="simbolo" aria-hidden="true">SB</span><span data-nombre>SteelBlue</span></a>
+			<nav aria-label="Navegación principal"><a href="#funciones" data-seccion="funciones">Funciones</a><a href="#estructura" data-seccion="estructura">Estructura</a><a href="#empezar" data-seccion="empezar">Empezar</a></nav>
+			<div class="acciones-cabecera"><button class="boton-icono" type="button" data-tema aria-label="Activar modo oscuro"></button><a class="boton pequeno" href="../index.html">Abrir el ERP <span aria-hidden="true">↗</span></a></div>
+		</header>
+		<main id="contenido" tabindex="-1">
+			<section id="presentacion" class="hero contenedor">
+				<div class="hero-texto">
+					<p class="etiqueta"><span class="punto"></span> GESTIÓN EMPRESARIAL, DESDE LA BASE</p>
+					<h1>Menos ruido.<br><span>Más control.</span></h1>
+					<p class="presentacion">Un lugar para tus clientes, productos y pedidos. <span data-nombre>SteelBlue</span> reúne los datos de tu empresa en una interfaz clara, pensada para trabajar con orden.</p>
+					<div class="acciones-hero"><a class="boton" href="../index.html">Explorar el ERP <span aria-hidden="true">→</span></a><a class="enlace-texto" href="#funciones">Conocer el proyecto <span aria-hidden="true">↓</span></a></div>
+					<p class="nota-hero">Proyecto académico · Organización y consulta · Ejecución local</p>
+				</div>
+                <figure class="hero-visual">
+                  <a class="captura-enlace" href="../index.html" aria-label="Abrir el ERP mostrado en la captura">
+                    <img class="captura-clara" src="imagenes/erp-claro.png?v=presentacion-3" width="1440" height="1228" alt="Dashboard actual de SteelBlue en modo claro, con sus indicadores y gráficas." decoding="async" fetchpriority="high">
+                    <img class="captura-oscura" src="imagenes/erp-oscuro.png?v=presentacion-3" width="1440" height="1228" alt="Dashboard actual de SteelBlue en modo oscuro, con sus indicadores y gráficas." decoding="async">
+                  </a>
+                  <figcaption class="pie-captura"><span>Vista real del ERP · Datos de demostración</span><a href="../index.html">Ver en funcionamiento <span aria-hidden="true">↗</span></a></figcaption>
+                </figure>
+			</section>
+			<div class="datos-proyecto contenedor"><div><strong>07</strong><span>Entidades de gestión</span></div><div><strong>CRUD</strong><span>Consulta, creación, edición y borrado</span></div><div><strong>CSV · HTML · MD</strong><span>Exportaciones, informes y gráficas</span></div></div>
+			<section id="funciones" class="funciones contenedor">
+				<div class="introduccion-seccion"><p class="etiqueta">LO QUE PUEDES HACER HOY</p><h2>Del dato al registro.<br>Sin perder el hilo.</h2><p>Consulta y gestiona tus registros, analiza sus gráficas y prepara informes. Los formularios y listados se adaptan a las columnas de cada tabla.</p><a class="enlace-texto" href="../index.html">Verlo en funcionamiento <span aria-hidden="true">↗</span></a></div>
+				<div class="lista-funciones">
+					<article><span class="numero">01</span><div><h3>Encuentra la información</h3><p>Navega entre clientes, productos, empleados, proveedores, componentes, pedidos y líneas de pedido.</p></div></article>
+					<article><span class="numero">02</span><div><h3>Trabaja sobre datos reales</h3><p>Crea y edita registros desde sus formularios. Los cambios se guardan en SQLite y se mantienen al volver a abrir el ERP.</p></div></article>
+					<article><span class="numero">03</span><div><h3>Analiza y comparte la información</h3><p>Consulta el dashboard y las gráficas de tus entidades. Genera informes con filtros, ordenación, sumas y promedios; imprímelos en PDF o exporta cada tabla a CSV, HTML y Markdown. También dispones de la exportación completa en JSON.</p></div></article>
+				</div>
+			</section>
+			<section class="modulos contenedor"><div><p class="etiqueta">EL SIGUIENTE PASO</p><h2>Una base para seguir creciendo.</h2><p>Los módulos están previstos en la estructura del proyecto. Sus procesos de negocio se desarrollarán en próximas unidades.</p></div><div class="lista-modulos"><span>Ventas <small>Previsto</small></span><span>RR. HH. <small>Previsto</small></span><span>Facturación <small>Previsto</small></span><span>Compras <small>Previsto</small></span></div></section>
+			<section id="estructura" class="estructura">
+				<div class="contenedor"><div class="cabecera-estructura"><div><p class="etiqueta">CADA CAPA, SU RESPONSABILIDAD</p><h2>Sencillo por fuera.<br>Ordenado por dentro.</h2></div><p>El navegador presenta los datos. PHP atiende las peticiones y SQLite los guarda. La separación entre cliente y servidor permite avanzar sin mezclarlo todo.</p></div><div class="flujo"><div><span class="paso">01 / CLIENTE</span><h3>HTML · CSS · JS</h3><p>Interfaz, tablas y formularios.</p></div><span class="conector" aria-hidden="true">→</span><div><span class="paso">02 / COMUNICACIÓN</span><h3>fetch + JSON</h3><p>Peticiones GET y POST a la API.</p></div><span class="conector" aria-hidden="true">→</span><div><span class="paso">03 / SERVIDOR</span><h3>PHP · SQLite</h3><p>Consultas preparadas y persistencia.</p></div></div><div class="detalle-estructura"><span>Sin frameworks ni dependencias externas</span><span>Configuración de nombre y color</span><span>Instalador incluido</span></div></div>
+			</section>
+			<section id="empezar" class="empezar contenedor"><div><p class="etiqueta">TU ESPACIO DE TRABAJO</p><h2>Todo listo para<br>dar el primer paso.</h2><p>La entrega incluye una base con datos ficticios. También puedes crear tus tablas escribiendo el modelo de datos en el instalador, como en clase.</p><a class="boton" href="../instalador.html">Abrir el instalador <span aria-hidden="true">→</span></a></div><ol class="pasos"><li><span>01</span><div><h3>Prepara PHP</h3><p>Necesitas PHP con la extensión SQLite3 habilitada.</p></div></li><li><span>02</span><div><h3>Arranca el servidor local</h3><p>Desde la carpeta del proyecto:</p><code>php -S localhost:8000</code></div></li><li><span>03</span><div><h3>Abre <span data-nombre>SteelBlue</span></h3><p>Entra en <code>localhost:8000</code> y elige una entidad para empezar.</p></div></li></ol></section>
+		</main>
+		<footer class="pie"><div class="contenedor"><a class="marca" href="#"><span class="simbolo" aria-hidden="true">SB</span><span data-nombre>SteelBlue</span></a><p>Un lugar para cada dato.<br><span>Proyecto académico de sistemas de gestión empresarial.</span></p><a href="../index.html">Ir al ERP <span aria-hidden="true">↗</span></a></div></footer>
+		<script src="codigo.js?v=presentacion-3"></script>
+	</body>
+</html>

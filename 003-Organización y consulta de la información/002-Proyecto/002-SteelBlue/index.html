@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f6f8">
+  <title>SteelBlue · Gestión empresarial</title>
+  <script src="nucleo/interfaz.js"></script>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%234682B4'/%3E%3Ctext x='20' y='25' text-anchor='middle' font-family='Arial' font-weight='bold' font-size='14' fill='white'%3ESB%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Ir al contenido</a>
+  <div class="marco-aplicacion">
+    <header class="barra-superior">
+      <a class="marca" href="web/index.html" aria-label="Web de SteelBlue"><span class="simbolo" aria-hidden="true">SB</span><span data-nombre>SteelBlue</span><span class="marca-detalle">ERP</span></a>
+      <nav class="navegacion-vistas" aria-label="Vistas principales">
+        <button class="enlace-inicio activo" id="inicio" type="button">Dashboard</button>
+        <button class="enlace-inicio" id="boton-entidades" type="button" data-panel="entidades" aria-haspopup="dialog" aria-controls="panel-entidades" aria-expanded="false">Entidades</button>
+        <button class="enlace-inicio" id="boton-reporting" type="button">Reporting</button>
+      </nav>
+      <div class="enlaces-superiores">
+        <div class="acciones-superiores">
+          <button class="boton-icono" type="button" data-tema aria-label="Activar modo oscuro"></button>
+          <button class="boton-icono" type="button" data-panel="herramientas" aria-label="Opciones del proyecto" aria-haspopup="dialog" aria-controls="panel-herramientas" aria-expanded="false"><span data-icono="help"></span></button>
+        </div>
+        <span class="entorno"><span class="punto"></span><span><strong>Tu espacio de trabajo</strong><small>Entorno local</small></span></span>
+      </div>
+    </header>
+    <main class="aplicacion">
+      <aside class="barra-lateral" aria-label="Accesos del ERP">
+        <div class="grupo-menu">
+          <p class="solo-lectores">Datos de la empresa</p>
+          <nav id="entidades" aria-label="Entidades"><p class="texto-menu">Cargando…</p></nav>
+        </div>
+        <nav class="pie-menu" aria-label="Herramientas">
+          <a href="web/index.html" class="boton-rail" aria-label="Web de presentación" title="Web de presentación"><span data-icono="external"></span></a>
+          <a href="instalador.html" class="boton-rail" aria-label="Instalador" title="Instalador"><span data-icono="wrench"></span></a>
+          <a href="servicios/salida.php" target="_blank" rel="noopener" class="boton-rail" aria-label="Exportar datos JSON" title="Exportar datos JSON"><span data-icono="download"></span></a>
+        </nav>
+      </aside>
+      <div class="area-trabajo">
+        <div id="mensaje" class="mensaje" role="status" aria-live="polite" hidden><span id="texto-mensaje"></span><button id="cerrar-mensaje" type="button" aria-label="Cerrar aviso"><span data-icono="x"></span></button></div>
+        <section id="contenido" tabindex="-1" aria-label="Contenido de gestión"><div class="cargando" role="status"><span class="indicador-carga"></span>Preparando tu espacio de trabajo…</div></section>
+        <footer class="pie-contenido"><span>Un lugar para cada dato.</span><span data-nombre>SteelBlue</span></footer>
+      </div>
+    </main>
+  </div>
+  <nav class="navegacion-movil" aria-label="Navegación móvil">
+    <button type="button" data-vista="dashboard" class="activo"><span data-icono="dashboard"></span><span>Dashboard</span></button>
+    <button type="button" data-vista="entidades" data-panel="entidades" aria-haspopup="dialog" aria-controls="panel-entidades" aria-expanded="false"><span data-icono="layers"></span><span>Entidades</span></button>
+    <button type="button" data-vista="reporting"><span data-icono="chart"></span><span>Reporting</span></button>
+  </nav>
+  <dialog id="panel-entidades" data-panel-dialogo aria-labelledby="titulo-entidades">
+    <div class="panel-cabecera"><h2 id="titulo-entidades">Datos de la empresa</h2><button class="boton-icono" type="button" data-cerrar-panel aria-label="Cerrar entidades"><span data-icono="x"></span></button></div>
+    <nav class="panel-lista" aria-label="Seleccionar entidad"></nav>
+  </dialog>
+  <dialog id="panel-herramientas" data-panel-dialogo aria-labelledby="titulo-herramientas">
+    <div class="panel-cabecera"><h2 id="titulo-herramientas">Tu proyecto</h2><button class="boton-icono" type="button" data-cerrar-panel aria-label="Cerrar opciones"><span data-icono="x"></span></button></div>
+    <nav class="panel-enlaces" aria-label="Opciones del proyecto">
+      <a href="web/index.html"><span data-icono="external"></span>Sobre <span data-nombre>SteelBlue</span></a>
+      <a href="instalador.html"><span data-icono="wrench"></span>Instalador</a>
+      <a href="servicios/salida.php" target="_blank" rel="noopener"><span data-icono="download"></span>Exportar datos JSON</a>
+    </nav>
+    <div class="panel-modulos"><p class="titulo-menu">MÓDULOS PREVISTOS</p><div id="modulos"></div><p>Se desarrollarán en próximas unidades.</p></div>
+  </dialog>
+  <dialog id="confirmacion" aria-labelledby="titulo-confirmacion" aria-describedby="detalle-confirmacion">
+    <span class="icono-dialogo" aria-hidden="true">!</span>
+    <h2 id="titulo-confirmacion">Eliminar registro</h2><p id="detalle-confirmacion"></p><p class="nota-dialogo">Esta acción no se puede deshacer.</p>
+    <form method="dialog" class="acciones-dialogo"><button class="boton secundario" value="cancelar" autofocus>Cancelar</button><button class="boton peligro" value="eliminar">Eliminar registro</button></form>
+  </dialog>
+  <script src="nucleo/graficas.js"></script>
+  <script src="nucleo/analitica.js"></script>
+  <script src="nucleo/dashboard.js"></script>
+  <script src="nucleo/formulario.js"></script>
+  <script src="nucleo/csv.js"></script>
+  <script src="nucleo/exportaciones.js"></script>
+  <script src="nucleo/tabla.js"></script>
+  <script src="nucleo/reporting.js"></script>
+  <script src="codigo.js"></script>
+</body>
+</html>

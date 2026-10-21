@@ -1,0 +1,126 @@
+/* Sistema visual de la plantilla Vertis, adaptado a la marca SteelBlue. */
+:root{
+  --color_corporativo:#4682B4;
+  --color-bg:#f7f6f8;
+  --color-surface:#ffffff;
+  --color-surface-alt:#f8f7f9;
+  --color-surface-hover:#f1eff3;
+  --color-text:#1d1c22;
+  --color-text-muted:#706c79;
+  --color-text-subtle:#9993a1;
+  --color-border:#eeecf0;
+  --color-border-strong:#e2dfe6;
+  --color-accent:var(--color_corporativo);
+  --color-accent-hover:color-mix(in srgb,var(--color_corporativo) 80%,#102b43);
+  --color-accent-soft:color-mix(in srgb,var(--color_corporativo) 10%,white);
+  --color-success:#238262;
+  --color-success-soft:#e8f8f2;
+  --color-danger:#b93e48;
+  --color-danger-soft:#fff0f1;
+  --font-ui:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --radius-card:18px;
+  --radius-control:11px;
+  --radius-pill:999px;
+  --space-layout:clamp(18px,1.8vw,34px);
+  --shadow-card:0 10px 35px rgba(41,30,50,.025);
+  --shadow-floating:0 15px 50px rgba(41,30,50,.1);
+  --ease-ui:cubic-bezier(.23,1,.32,1);
+  --grafica-1:var(--color-accent);
+  --grafica-2:#33343d;
+  --grafica-3:#97bbd8;
+  --grafica-4:#777582;
+  --grafica-5:#315f87;
+  --grafica-6:#299b83;
+  --grafica-7:#9b83b9;
+  --grafica-8:#b8b6c0;
+  --texto:var(--color-text);
+  --texto_secundario:var(--color-text-muted);
+  --secundario:var(--color-text-muted);
+  --borde:var(--color-border);
+  --fondo:var(--color-bg);
+  --color_accion:var(--color-accent-hover);
+  font-family:var(--font-ui);
+  color-scheme:light;
+}
+:root[data-theme="dark"]{
+  --color-bg:#121116;
+  --color-surface:#1b1a20;
+  --color-surface-alt:#242229;
+  --color-surface-hover:#2e2b34;
+  --color-text:#f4f2f6;
+  --color-text-muted:#ada7b5;
+  --color-text-subtle:#88818f;
+  --color-border:#2c2a32;
+  --color-border-strong:#39363e;
+  --color-accent:color-mix(in srgb,var(--color_corporativo) 72%,white);
+  --color-accent-hover:color-mix(in srgb,var(--color_corporativo) 60%,white);
+  --color-accent-soft:color-mix(in srgb,var(--color_corporativo) 22%,#1b1a20);
+  --color-success:#61d2a6;
+  --color-success-soft:#17382c;
+  --color-danger:#f1959f;
+  --color-danger-soft:#3c242d;
+  --grafica-2:#d1ccd7;
+  --grafica-3:#5783a8;
+  --grafica-4:#a49bad;
+  --grafica-5:#819fbd;
+  --grafica-6:#61c9b0;
+  --grafica-7:#b39ad2;
+  --grafica-8:#777281;
+  --shadow-card:0 20px 45px rgba(0,0,0,.06);
+  --shadow-floating:0 20px 55px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*{ box-sizing:border-box; }
+body{ margin:0; background:var(--color-bg); color:var(--color-text); font-family:var(--font-ui); font-size:13px; font-weight:450; -webkit-font-smoothing:antialiased; }
+button,input,select,textarea{ font:inherit; }
+button,a,input,select{ -webkit-tap-highlight-color:transparent; }
+button,a{ touch-action:manipulation; }
+button{ cursor:pointer; }
+button:disabled{ cursor:wait; opacity:.6; }
+a{ color:inherit; text-decoration:none; }
+[hidden]{ display:none !important; }
+:focus-visible{ outline:3px solid var(--color-accent); outline-offset:4px; }
+.solo-lectores{ position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.saltar{ position:fixed; left:16px; top:-100px; z-index:100; background:var(--color-surface); padding:12px 16px; border:1px solid var(--color-border); border-radius:var(--radius-control); }
+.saltar:focus{ top:12px; }
+.icono{ display:block; width:18px; height:18px; flex-shrink:0; }
+[data-icono]{ display:inline-flex; align-items:center; justify-content:center; }
+.marca{ display:inline-flex; align-items:center; gap:10px; color:var(--color-text); width:max-content; font-size:17px; font-weight:780; letter-spacing:-.7px; }
+.simbolo{ display:grid; place-items:center; height:34px; width:34px; flex-shrink:0; border-radius:50%; background:linear-gradient(135deg,var(--color-accent),var(--color-accent-hover)); color:#fff; font-size:12px; font-weight:750; letter-spacing:-.5px; box-shadow:0 4px 12px color-mix(in srgb,var(--color_corporativo) 16%,transparent); }
+.boton{ display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:40px; padding:10px 15px; border:1px solid var(--color-text); border-radius:var(--radius-control); background:var(--color-text); color:var(--color-surface); font-size:11.5px; font-weight:650; white-space:nowrap; transition:background .2s,transform .2s; }
+.boton:hover{ opacity:.86; transform:translateY(-1px); }
+.boton.secundario{ border-color:var(--color-border-strong); color:var(--color-text); background:var(--color-surface); }
+.boton.secundario:hover{ opacity:1; background:var(--color-surface-hover); }
+.boton.peligro{ background:var(--color-danger); border-color:var(--color-danger); color:var(--color-surface); }
+.boton-icono{ display:inline-grid; place-items:center; width:36px; height:36px; flex-shrink:0; border:1px solid var(--color-border); border-radius:50%; background:var(--color-surface); color:var(--color-text); transition:background .2s; }
+.boton-icono:hover{ background:var(--color-surface-hover); }
+.etiqueta,.etiqueta-superior{ display:block; font-size:10px; font-weight:650; letter-spacing:1.2px; color:var(--color-text-muted); line-height:1.6; }
+dialog{ width:min(440px,calc(100% - 32px)); max-height:85dvh; overflow:auto; padding:28px; border:1px solid var(--color-border-strong); border-radius:22px; background:var(--color-surface); color:var(--color-text); box-shadow:var(--shadow-floating); }
+dialog::backdrop{ background:#10101866; backdrop-filter:blur(5px); }
+dialog h2{ font-size:21px; letter-spacing:-.6px; margin:19px 0 12px; }
+dialog p{ color:var(--color-text-muted); font-size:12px; line-height:1.8; }
+.icono-dialogo{ display:grid; place-items:center; width:44px; height:44px; border-radius:14px; background:var(--color-danger-soft); color:var(--color-danger); font-size:22px; font-weight:650; }
+.acciones-dialogo{ display:flex; justify-content:flex-end; gap:10px; margin-top:25px; flex-wrap:wrap; }
+.panel-cabecera{ display:flex; align-items:center; justify-content:space-between; gap:15px; margin-bottom:20px; }
+.panel-cabecera h2{ margin:0; font-size:19px; }
+.panel-enlaces,.panel-lista{ display:flex; flex-direction:column; gap:6px; }
+.panel-enlaces a,.panel-lista a{ display:flex; align-items:center; gap:12px; border-radius:12px; padding:12px; font-size:13px; }
+.panel-enlaces a:hover,.panel-lista a:hover,.panel-lista a.activo{ background:var(--color-surface-hover); }
+.panel-lista .icono-entidad{ display:flex; }
+.panel-lista .nombre-entidad{ position:static; width:auto; height:auto; clip-path:none; }
+.panel-modulos{ margin-top:22px; padding-top:18px; border-top:1px solid var(--color-border); }
+.titulo-menu{ font-size:10px; font-weight:650; letter-spacing:1px; color:var(--color-text-muted); }
+.modulo-previsto{ display:flex; justify-content:space-between; gap:12px; padding:10px 2px; font-size:12px; }
+.estado-modulo{ color:var(--color-text-muted); font-size:10px; }
+body.panel-abierto{ overflow:hidden; }
+@media(prefers-reduced-motion:reduce){ *,*::before,*::after{ animation:none !important; transition:none !important; scroll-behavior:auto !important; } }
+@media print{
+  :root,:root[data-theme="dark"]{
+    --color-bg:#fff; --color-surface:#fff; --color-surface-alt:#f8f7f9; --color-surface-hover:#f1eff3;
+    --color-text:#1d1c22; --color-text-muted:#706c79; --color-text-subtle:#9993a1;
+    --color-border:#eeecf0; --color-border-strong:#e2dfe6; --color-accent:var(--color_corporativo);
+    --color-accent-hover:#315f87; --grafica-2:#33343d; --grafica-3:#97bbd8; --grafica-4:#777582;
+    --grafica-5:#315f87; --grafica-6:#299b83; --grafica-7:#9b83b9; --grafica-8:#b8b6c0; color-scheme:light;
+  }
+  [data-tema],dialog,.navegacion-movil{ display:none !important; }
+}
