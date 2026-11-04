@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Catálogo de apps, webs y proyectos de valentindg.">
+    <title>Catálogo de productos · valentindg</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400..700&display=swap">
+
+    <style>
+        /* Tokens del manual de marca valentindg (valentindg.com/marca) */
+        :root {
+            --color-bg: #f7f6f8;
+            --color-surface: #ffffff;
+            --color-surface-alt: #f8f7f9;
+            --color-surface-hover: #f1eff3;
+            --color-text: #1d1c22;
+            --color-text-muted: #6e6b76;
+            --color-text-subtle: #8e8797;
+            --color-icon: #76727c;
+            --color-border: #f0eef1;
+            --color-border-strong: #e9e6eb;
+            --color-accent: #ed533e;
+            --color-accent-hover: #d93626;
+            --color-accent-soft: #fff0ed;
+            --color-focus-ring: rgba(237, 83, 62, .45);
+            --color-tile-bg: #1d1c22;
+            --color-tile-fg: #ffffff;
+
+            --glass-bg: rgba(255, 255, 255, .56);
+            --glass-rim: rgba(255, 255, 255, .9);
+            --glass-shadow: 0 6px 20px -8px rgba(29, 28, 34, .16), 0 0 0 .5px rgba(29, 28, 34, .06);
+            --shadow-card: 0 10px 35px rgba(41, 30, 50, .025);
+            --glow: rgba(237, 83, 62, .10);
+
+            --font-ui: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+            --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+            --text-h1: 31px;
+            --text-h3: 15px;
+            --text-body: 13px;
+            --text-small: 12px;
+            --text-caption: 11px;
+
+            --space-2: 4px;
+            --space-3: 6px;
+            --space-4: 8px;
+            --space-5: 10px;
+            --space-6: 12px;
+            --space-7: 15px;
+            --space-8: 18px;
+            --space-9: 22px;
+            --space-10: 34px;
+
+            --radius-card: 18px;
+            --radius-control: 11px;
+            --radius-icon: 10px;
+            --radius-tag: 6px;
+            --radius-pill: 999px;
+
+            --ease-ui: cubic-bezier(.23, 1, .32, 1);
+            --duration-fast: .15s;
+
+            color-scheme: light;
+        }
+
+        /* Modo oscuro según el sistema, salvo que se elija claro */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --color-bg: #121116;
+                --color-surface: #1b1a20;
+                --color-surface-alt: #242229;
+                --color-surface-hover: #2e2b34;
+                --color-text: #f4f2f6;
+                --color-text-muted: #a7a2ae;
+                --color-text-subtle: #7e7887;
+                --color-icon: #a7a2ae;
+                --color-border: #2c2a32;
+                --color-border-strong: #39363e;
+                --color-accent: #f65d49;
+                --color-accent-hover: #f16a55;
+                --color-accent-soft: #3d2729;
+                --color-focus-ring: rgba(246, 93, 73, .5);
+                --color-tile-bg: #f4f2f6;
+                --color-tile-fg: #1d1c22;
+                --glass-bg: rgba(40, 38, 46, .46);
+                --glass-rim: rgba(255, 255, 255, .14);
+                --glass-shadow: 0 8px 24px -8px rgba(0, 0, 0, .5), 0 0 0 .5px rgba(0, 0, 0, .4);
+                --shadow-card: 0 20px 45px rgba(0, 0, 0, .06);
+                --glow: rgba(246, 93, 73, .08);
+                color-scheme: dark;
+            }
+        }
+
+        /* Modo oscuro elegido con el botón */
+        :root[data-theme="dark"] {
+            --color-bg: #121116;
+            --color-surface: #1b1a20;
+            --color-surface-alt: #242229;
+            --color-surface-hover: #2e2b34;
+            --color-text: #f4f2f6;
+            --color-text-muted: #a7a2ae;
+            --color-text-subtle: #7e7887;
+            --color-icon: #a7a2ae;
+            --color-border: #2c2a32;
+            --color-border-strong: #39363e;
+            --color-accent: #f65d49;
+            --color-accent-hover: #f16a55;
+            --color-accent-soft: #3d2729;
+            --color-focus-ring: rgba(246, 93, 73, .5);
+            --color-tile-bg: #f4f2f6;
+            --color-tile-fg: #1d1c22;
+            --glass-bg: rgba(40, 38, 46, .46);
+            --glass-rim: rgba(255, 255, 255, .14);
+            --glass-shadow: 0 8px 24px -8px rgba(0, 0, 0, .5), 0 0 0 .5px rgba(0, 0, 0, .4);
+            --shadow-card: 0 20px 45px rgba(0, 0, 0, .06);
+            --glow: rgba(246, 93, 73, .08);
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding-left: max(16px, env(safe-area-inset-left, 0px));
+            padding-right: max(16px, env(safe-area-inset-right, 0px));
+            padding-block: 0 var(--space-10);
+            background:
+                radial-gradient(600px 260px at 18% 0, var(--glow), transparent 70%),
+                var(--color-bg);
+            color: var(--color-text);
+            font: 400 var(--text-body)/1.5 var(--font-ui);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1480px;
+            margin: 0 auto;
+        }
+
+        /* Navegación en píldora de cristal */
+        .nav {
+            position: sticky;
+            top: calc(env(safe-area-inset-top, 0px) + 14px);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-6);
+            margin-top: 14px;
+            padding: var(--space-3) var(--space-3) var(--space-3) var(--space-8);
+            border-radius: var(--radius-pill);
+            background: var(--glass-bg);
+            -webkit-backdrop-filter: blur(24px) saturate(190%);
+            backdrop-filter: blur(24px) saturate(190%);
+            box-shadow: var(--glass-shadow), inset 0 1px 1px var(--glass-rim);
+        }
+
+        .lockup {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--color-text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .lockup svg {
+            display: block;
+            width: auto;
+            height: 26px;
+            fill: currentColor;
+        }
+
+        .lockup-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: -.2px;
+            line-height: 1;
+        }
+
+        .lockup-name::before {
+            content: "";
+            width: 1px;
+            height: 20px;
+            background: var(--color-border-strong);
+        }
+
+        .icon-btn {
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border: 0;
+            border-radius: var(--radius-pill);
+            background: transparent;
+            color: var(--color-icon);
+            cursor: pointer;
+            transition:
+                background var(--duration-fast) var(--ease-ui),
+                color var(--duration-fast) var(--ease-ui);
+        }
+
+        .icon-btn:hover {
+            background: var(--color-surface-hover);
+            color: var(--color-text);
+        }
+
+        .icon {
+            width: 17px;
+            height: 17px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.85;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--color-focus-ring);
+            outline-offset: 3px;
+        }
+
+        /* Cabecera de la página */
+        .page-head {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: var(--space-8);
+            padding-block: 48px var(--space-9);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: var(--text-h1);
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -.6px;
+            text-wrap: balance;
+        }
+
+        .subtitle {
+            margin: var(--space-2) 0 0;
+            color: var(--color-text-muted);
+            font-size: 14px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-2) var(--space-5);
+            border: 1px solid var(--color-border-strong);
+            border-radius: var(--radius-tag);
+            background: var(--color-surface);
+            color: var(--color-text-muted);
+            font-size: var(--text-small);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .num {
+            color: var(--color-text);
+            font-family: var(--font-mono);
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Tarjeta con la tabla */
+        .panel {
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-card);
+            background: var(--color-surface);
+            box-shadow: var(--shadow-card);
+        }
+
+        .toolbar {
+            display: flex;
+            gap: var(--space-4);
+            padding: var(--space-8) var(--space-9);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .field {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-width: 0;
+        }
+
+        .field-search {
+            flex: 1;
+        }
+
+        .field .icon {
+            position: absolute;
+            left: 12px;
+            width: 15px;
+            height: 15px;
+            color: var(--color-icon);
+            pointer-events: none;
+        }
+
+        .field-select {
+            min-width: 170px;
+        }
+
+        .field-select::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 14px;
+            width: 6px;
+            height: 6px;
+            border-right: 1.85px solid var(--color-icon);
+            border-bottom: 1.85px solid var(--color-icon);
+            transform: translateY(-70%) rotate(45deg);
+            pointer-events: none;
+        }
+
+        input,
+        select {
+            width: 100%;
+            min-height: 40px;
+            border: 1px solid var(--color-border-strong);
+            border-radius: var(--radius-control);
+            background: var(--color-surface-alt);
+            color: var(--color-text);
+            font: 400 var(--text-body)/1.2 var(--font-ui);
+            transition: background var(--duration-fast) var(--ease-ui);
+        }
+
+        input {
+            padding: 0 var(--space-6) 0 36px;
+        }
+
+        input::placeholder {
+            color: var(--color-text-subtle);
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            padding: 0 34px 0 var(--space-6);
+            cursor: pointer;
+        }
+
+        input:hover,
+        select:hover {
+            background: var(--color-surface-hover);
+        }
+
+        input:focus-visible,
+        select:focus-visible {
+            background: var(--color-surface);
+            outline-offset: 2px;
+        }
+
+        .table-scroll {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            padding: var(--space-6) var(--space-9);
+            border-bottom: 1px solid var(--color-border);
+            background: var(--color-surface-alt);
+            color: var(--color-text-muted);
+            font-size: var(--text-small);
+            font-weight: 600;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            transition: color var(--duration-fast) var(--ease-ui);
+        }
+
+        th:hover,
+        th[aria-sort="ascending"],
+        th[aria-sort="descending"] {
+            color: var(--color-text);
+        }
+
+        th:focus-visible {
+            outline-offset: -3px;
+        }
+
+        .sort {
+            display: inline-block;
+            width: 1em;
+            margin-left: var(--space-2);
+            color: var(--color-text-subtle);
+            font-family: var(--font-mono);
+        }
+
+        th[aria-sort="ascending"] .sort,
+        th[aria-sort="descending"] .sort {
+            color: var(--color-accent);
+        }
+
+        td {
+            padding: var(--space-6) var(--space-9);
+            border-bottom: 1px solid var(--color-border);
+            vertical-align: middle;
+        }
+
+        tbody tr {
+            transition: background var(--duration-fast) var(--ease-ui);
+        }
+
+        tbody tr:hover {
+            background: var(--color-surface-hover);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+            white-space: nowrap;
+        }
+
+        .product-tile {
+            display: grid;
+            place-items: center;
+            flex: none;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-icon);
+            background: var(--color-tile-bg);
+            color: var(--color-tile-fg);
+        }
+
+        .product-tile svg {
+            width: 20px;
+            height: auto;
+            fill: currentColor;
+        }
+
+        .product-name {
+            font-size: var(--text-h3);
+            font-weight: 600;
+            letter-spacing: -.2px;
+        }
+
+        .description {
+            display: block;
+            min-width: 210px;
+            color: var(--color-text-muted);
+        }
+
+        .site-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            color: var(--color-text);
+            font-family: var(--font-mono);
+            font-size: var(--text-small);
+            text-decoration: none;
+            white-space: nowrap;
+            border-radius: var(--radius-tag);
+            transition: color var(--duration-fast) var(--ease-ui);
+        }
+
+        .site-link .icon {
+            width: 13px;
+            height: 13px;
+            color: var(--color-icon);
+        }
+
+        .site-link:hover,
+        .site-link:hover .icon {
+            color: var(--color-accent);
+        }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            min-width: 220px;
+            max-width: 340px;
+        }
+
+        .stack-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px var(--space-3);
+            border: 1px solid var(--color-border-strong);
+            border-radius: var(--radius-tag);
+            background: var(--color-surface-alt);
+            color: var(--color-text);
+            font-family: var(--font-mono);
+            font-size: var(--text-caption);
+            line-height: 1.5;
+            white-space: nowrap;
+        }
+
+        .stack-tag.is-match {
+            border-color: var(--color-accent);
+            background: var(--color-accent-soft);
+            color: var(--color-accent);
+        }
+
+        .badge-clase {
+            display: inline-flex;
+            margin-left: var(--space-4);
+            padding: 1px var(--space-3);
+            border-radius: var(--radius-tag);
+            background: var(--color-surface-hover);
+            color: var(--color-text-muted);
+            font-size: var(--text-caption);
+            font-weight: 600;
+        }
+
+        .empty td {
+            padding: 48px var(--space-9);
+            color: var(--color-text-muted);
+            text-align: center;
+        }
+
+        .empty strong {
+            display: block;
+            margin-bottom: var(--space-2);
+            color: var(--color-text);
+            font-size: var(--text-h3);
+            font-weight: 600;
+        }
+
+        .btn {
+            min-height: 34px;
+            margin-top: var(--space-6);
+            padding: 0 var(--space-7);
+            border: 1px solid var(--color-border-strong);
+            border-radius: var(--radius-control);
+            background: var(--color-surface);
+            color: var(--color-text);
+            font: 600 var(--text-small)/1 var(--font-ui);
+            cursor: pointer;
+            transition: background var(--duration-fast) var(--ease-ui);
+        }
+
+        .btn:hover {
+            background: var(--color-surface-hover);
+        }
+
+        .footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: var(--space-6);
+            padding: var(--space-7) var(--space-9);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-muted);
+            font-size: var(--text-small);
+        }
+
+        @media (max-width: 620px) {
+            .page-head {
+                padding-block: 34px var(--space-8);
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                padding: var(--space-7);
+            }
+
+            .field-select {
+                min-width: 0;
+            }
+
+            th,
+            td {
+                padding-inline: var(--space-7);
+            }
+        }
+
+        @media (max-width: 385px) {
+            .lockup svg {
+                height: 22px;
+            }
+
+            .lockup-name {
+                font-size: 13px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Monograma VDG: se define una vez y se reutiliza con <use> -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+        <symbol id="vdg" viewBox="0 0 1098 383">
+            <path d="M7.7 0L80.9 0A50 50 0 0 1 121.8 21.3L287.7 258.3A4 4 0 0 0 294.3 258.3L377 140.2A45 45 0 0 1 413.8 121L491.3 121A4 4 0 0 1 494.6 127.3L334.5 356.1A52 52 0 0 1 249.2 356.1L4.4 6.3A4 4 0 0 1 7.7 0ZM300.7 0L594.7 0A95 95 0 0 1 675.4 44.9L812 265.2A80 80 0 0 0 880 303L989 303A30 30 0 0 0 1019 273L1019 263A30 30 0 0 0 989 233L833.7 233A4 4 0 0 1 830.4 226.7L876.8 160.4A22 22 0 0 1 894.9 151L1048 151A50 50 0 0 1 1098 201L1098 333A50 50 0 0 1 1048 383L860.5 383A150 150 0 0 1 733 312L605.3 106A55 55 0 0 0 558.6 80L360.5 80A22 22 0 0 1 342.4 70.6L297.4 6.3A4 4 0 0 1 300.7 0ZM333.4 376.7L378.4 312.4A22 22 0 0 1 396.5 303L557.9 303A55 55 0 0 0 604.7 277L732.4 71A150 150 0 0 1 859.9 0L1045.3 0A4 4 0 0 1 1048.6 6.3L1003.6 70.6A22 22 0 0 1 985.5 80L879.3 80A80 80 0 0 0 811.4 117.8L674.8 338.1A95 95 0 0 1 594.1 383L336.7 383A4 4 0 0 1 333.4 376.7Z"/>
+        </symbol>
+    </svg>
+
+    <div class="container">
+        <nav class="nav" aria-label="Principal">
+            <a class="lockup" href="https://valentindg.com">
+                <svg viewBox="0 0 1098 383" role="img" aria-label="VDG">
+                    <use href="#vdg"/>
+                </svg>
+                <span class="lockup-name">Catálogo</span>
+            </a>
+
+            <button class="icon-btn" id="tema" type="button" aria-label="Cambiar a modo oscuro">
+                <svg class="icon" id="iconoTema" viewBox="0 0 24 24" aria-hidden="true"></svg>
+            </button>
+        </nav>
+
+        <header class="page-head">
+            <div>
+                <h1>Catálogo de productos</h1>
+                <p class="subtitle">Apps, webs y proyectos de valentindg</p>
+            </div>
+
+            <span class="tag">
+                <span class="num" id="contador">0</span> productos
+            </span>
+        </header>
+
+        <section class="panel" aria-label="Productos">
+            <div class="toolbar">
+                <label class="field field-search">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"/>
+                        <path d="m20 20-3.5-3.5"/>
+                    </svg>
+                    <input
+                        type="search"
+                        id="buscar"
+                        placeholder="Busca por producto, descripción, dirección o tecnología"
+                        aria-label="Buscar productos"
+                    >
+                </label>
+
+                <div class="field field-select">
+                    <select id="filtroTecnologia" aria-label="Filtrar por tecnología">
+                        <option value="">Todas las tecnologías</option>
+                    </select>
+                </div>
+
+                <div class="field field-select">
+                    <select id="filtroTipo" aria-label="Filtrar por tipo de proyecto">
+                        <option value="">Todos los proyectos</option>
+                        <option value="propio">Proyectos propios</option>
+                        <option value="academico">Proyectos de clase</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="table-scroll">
+                <table id="productos">
+                    <thead>
+                        <tr>
+                            <th data-col="0" tabindex="0" aria-sort="none">
+                                Producto valentindg<span class="sort" aria-hidden="true">↕</span>
+                            </th>
+                            <th data-col="1" tabindex="0" aria-sort="none">
+                                Descripción<span class="sort" aria-hidden="true">↕</span>
+                            </th>
+                            <th data-col="2" tabindex="0" aria-sort="none">
+                                Dirección<span class="sort" aria-hidden="true">↕</span>
+                            </th>
+                            <th data-col="3" tabindex="0" aria-sort="none">
+                                Stack<span class="sort" aria-hidden="true">↕</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Valentindg | Web</td>
+                            <td>Web personal</td>
+                            <td>valentindg.com</td>
+                            <td>HTML5, CSS3</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Portafolio</td>
+                            <td>Portafolio de proyectos</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>HTML5, CSS3, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | CV</td>
+                            <td>Currículum online</td>
+                            <td>cv.valentindg.com</td>
+                            <td>HTML5, CSS3, Print CSS</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Manual de marca</td>
+                            <td>Manual de marca y sistema de diseño</td>
+                            <td>valentindg.com/marca</td>
+                            <td>HTML5, CSS3, Python</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Plantilla CRM</td>
+                            <td>Plantilla de CRM con la marca aplicada</td>
+                            <td>valentindg.com/plantilla</td>
+                            <td>HTML5, CSS3, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | TinoProp CRM</td>
+                            <td>CRM inmobiliario multiempresa</td>
+                            <td>tinoprop.com</td>
+                            <td>PHP 8, MySQL, Chart.js</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | RoomManager</td>
+                            <td>Gestión de habitaciones y alquileres</td>
+                            <td>roommanager.tinoprop.com</td>
+                            <td>PHP, MySQL, Stripe API, REST</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | CodePanel</td>
+                            <td>Panel para el programador</td>
+                            <td>codepanel.valentindg.com</td>
+                            <td>PHP 8.1, MySQL, API JSON, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Fluir</td>
+                            <td>Horario, entregas y fechas de la clase</td>
+                            <td>fluir.valentindg.com</td>
+                            <td>HTML5, CSS3, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | PintLeague</td>
+                            <td>Juego de beber</td>
+                            <td>pintleague.valentindg.com</td>
+                            <td>PHP, JavaScript, JWT, Web Push, PWA</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Eurcontroller</td>
+                            <td>Control de gastos y presupuestos</td>
+                            <td>eurcontroller.valentindg.com</td>
+                            <td>PHP, MySQL, PWA, Cache API</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Ronda</td>
+                            <td>Marcador para juegos de mesa y cartas</td>
+                            <td>ronda.civlv.com</td>
+                            <td>HTML5, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | CIVLV</td>
+                            <td>Formación online con certificados</td>
+                            <td>civlv.com</td>
+                            <td>HTML5, CSS3, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | BirraFinder</td>
+                            <td>Buscador de bares favoritos</td>
+                            <td>birrafinder.valentindg.com</td>
+                            <td>PHP 8, MySQL, Google Maps, PWA</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Birra &amp; Brújula</td>
+                            <td>Organizador de escapadas en grupo</td>
+                            <td>byb.valentindg.com</td>
+                            <td>HTML5, JavaScript, localStorage, PWA</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | MBA</td>
+                            <td>Confirmación de asistencia a eventos</td>
+                            <td>mba.valentindg.com</td>
+                            <td>PHP, MySQL, WhatsApp</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | AdminViews</td>
+                            <td>Seguimiento de series y películas</td>
+                            <td>adminviews.valentindg.com</td>
+                            <td>PHP, MySQL, TMDB API, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Depto</td>
+                            <td>Plan comercial y de viabilidad de un local</td>
+                            <td>depto.valentindg.com</td>
+                            <td>PHP 8.3, JavaScript, Chart.js</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | CAS Real Estate</td>
+                            <td>Web de la inmobiliaria en Valencia</td>
+                            <td>casrs.es</td>
+                            <td>HTML5, CSS3, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | CAS Gestión</td>
+                            <td>Acceso privado para clientes</td>
+                            <td>gestion.casrs.es</td>
+                            <td>PHP, MySQL</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | CAS Personal Shopper</td>
+                            <td>Selección de inmuebles para cada cliente</td>
+                            <td>psi.casrs.es</td>
+                            <td>PHP, MySQL</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Seguimiento CAS</td>
+                            <td>Seguimiento de propietarios, inquilinos y visitas</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>PHP, MySQL, PWA, Service Worker</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | InmoCRM</td>
+                            <td>CRM inmobiliario con 2FA y motor de matching</td>
+                            <td>github.com/Valentindg2506</td>
+                            <td>PHP, MySQL, 2FA TOTP</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Plataforma de Leads</td>
+                            <td>Captación de inmuebles con scoring por IA</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>TypeScript, Express, Telegram, Ollama</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Soft-Scrappeo</td>
+                            <td>CRM de captación de leads B2B</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>Python, Flask, SQLAlchemy, Scraping</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | BookingApp</td>
+                            <td>Reservas de citas con recordatorios</td>
+                            <td>github.com/Valentindg2506/BookingApp</td>
+                            <td>PHP 8.1, MySQL, Twilio, Google Meet</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | MP Solutions Group</td>
+                            <td>Landing de un call center argentino</td>
+                            <td>mpsolutions.com.ar</td>
+                            <td>HTML5, CSS3, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | DrinkLegends</td>
+                            <td>Versión original de PintLeague</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>Laravel 13, PHP 8.3, JWT, PWA</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Juntadas Party</td>
+                            <td>Juegos multijugador en tiempo real</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>PHP 8.3, WebSockets, Docker, Redis</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Iglesia del Santo Jocarsa</td>
+                            <td>Web paródica sobre la cultura Linux</td>
+                            <td>jocarsismo.vercel.app</td>
+                            <td>HTML5, CSS3, JavaScript</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | LocalCoder</td>
+                            <td>IDE de escritorio con IA local</td>
+                            <td>github.com/Valentindg2506/LocalCoder</td>
+                            <td>Rust, Tauri 2, React 18, TypeScript, Ollama</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | ExplainMyCodebase</td>
+                            <td>Explica los módulos de un proyecto con IA local</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>Next.js 14, TypeScript, Express, Ollama</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Bot-IA</td>
+                            <td>Asistente de estudio con Selenium e IA local</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>Python, Selenium, Ollama</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | TuaTeam</td>
+                            <td>Herramientas internas de las prácticas</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>Python, Flask, Chrome Extension, Scraping</td>
+                        </tr>
+                        <tr>
+                            <td>Valentindg | Codaprende</td>
+                            <td>Plataforma para aprender desarrollo web</td>
+                            <td>portafolio.valentindg.com</td>
+                            <td>Laravel, Livewire</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Agente IA Autónomo</td>
+                            <td>Genera, valida y corrige código Python</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>Python, Ollama, AST</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Tienda Online</td>
+                            <td>Tienda con carrito y pedidos</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>PHP, MySQL</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Supercontrolador</td>
+                            <td>Panel de administración generado desde la base de datos</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>PHP, MySQL</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Camaron Prop</td>
+                            <td>Portal inmobiliario con filtros y panel de administración</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>PHP, MySQL</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Microtienda</td>
+                            <td>Catálogo, carrito y pedido en JSON</td>
+                            <td>github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26</td>
+                            <td>JavaScript, MySQL</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Paint Canvas</td>
+                            <td>App de dibujo con HTML5 Canvas</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>HTML5 Canvas, JavaScript</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | SVG &amp; Data Viz</td>
+                            <td>Gráficos en SVG con animaciones</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>SVG, JavaScript</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Minichat Flask</td>
+                            <td>Chat multiusuario con Flask</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>Python, Flask, REST</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Bart vs Bob Patiño</td>
+                            <td>Videojuego 2D de clase</td>
+                            <td>github.com/Valentindg2506/Lenguajes-de-marcas-DAM-25-26</td>
+                            <td>HTML5 Canvas, POO</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Apps CLI Python</td>
+                            <td>13 aplicaciones de consola en Python</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>Python, POO, JSON, Pickle</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Duelo de Dragones</td>
+                            <td>Combate por turnos en Python</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>Python</td>
+                        </tr>
+                        <tr data-tipo="academico">
+                            <td>Valentindg | Duelo de Magos</td>
+                            <td>Ejercicio de condicionales en Python</td>
+                            <td>github.com/Valentindg2506/Programacion-DAM-25-26</td>
+                            <td>Python</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <span id="resultados">Mostrando 0 productos</span>
+                <span>valentindg · Catálogo</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const tabla = document.querySelector("#productos");
+        const tbody = tabla.querySelector("tbody");
+        const cabeceras = [...tabla.querySelectorAll("th")];
+
+        const buscar = document.querySelector("#buscar");
+        const filtroTecnologia = document.querySelector("#filtroTecnologia");
+        const filtroTipo = document.querySelector("#filtroTipo");
+
+        const SVG_NS = "http://www.w3.org/2000/svg";
+
+        let ordenColumna = 0;
+        let ordenDireccion = 1;
+
+        // "Valentindg | CRM" -> "CRM": el monograma ya firma la marca.
+        function nombreApp(nombre) {
+            const partes = nombre.split("|");
+
+            return partes.length > 1
+                ? partes.slice(1).join("|").trim()
+                : nombre;
+        }
+
+        // "PHP 8.3" -> "PHP", "React 18" -> "React": agrupa versiones en el filtro.
+        function tecnologiaBase(tecnologia) {
+            return tecnologia.replace(/\s+\d[\d.]*$/, "");
+        }
+
+        // Extraer los datos de las filas escritas en el HTML.
+        const datos = [...tbody.querySelectorAll("tr")].map(fila => {
+            const celdas = [...fila.cells].map(td => td.textContent.trim());
+            const stack = celdas[3]
+                .split(",")
+                .map(t => t.trim())
+                .filter(Boolean);
+
+            return {
+                nombre: celdas[0],
+                app: nombreApp(celdas[0]),
+                descripcion: celdas[1],
+                direccion: celdas[2],
+                stack: stack,
+                stackTexto: stack.join(", "),
+                bases: stack.map(tecnologiaBase),
+                tipo: fila.dataset.tipo === "academico" ? "academico" : "propio"
+            };
+        });
+
+        // Crear elementos de forma segura, sin HTML dinámico.
+        function elemento(tag, clase, texto) {
+            const el = document.createElement(tag);
+
+            if (clase) {
+                el.className = clase;
+            }
+
+            if (texto !== undefined) {
+                el.textContent = texto;
+            }
+
+            return el;
+        }
+
+        function monograma() {
+            const svg = document.createElementNS(SVG_NS, "svg");
+            const use = document.createElementNS(SVG_NS, "use");
+
+            svg.setAttribute("viewBox", "0 0 1098 383");
+            svg.setAttribute("aria-hidden", "true");
+            use.setAttribute("href", "#vdg");
+            svg.appendChild(use);
+
+            return svg;
+        }
+
+        function iconoEnlace() {
+            const svg = document.createElementNS(SVG_NS, "svg");
+            const path = document.createElementNS(SVG_NS, "path");
+
+            svg.setAttribute("class", "icon");
+            svg.setAttribute("viewBox", "0 0 24 24");
+            svg.setAttribute("aria-hidden", "true");
+            path.setAttribute("d", "M7 17 17 7M8 7h9v9");
+            svg.appendChild(path);
+
+            return svg;
+        }
+
+        // Filtro de tecnologías generado a partir de los datos, con el número de proyectos.
+        const usoTecnologias = new Map();
+
+        datos.forEach(p => {
+            new Set(p.bases).forEach(base => {
+                usoTecnologias.set(base, (usoTecnologias.get(base) || 0) + 1);
+            });
+        });
+
+        [...usoTecnologias.keys()]
+            .sort((a, b) => a.localeCompare(b, "es", { sensitivity: "base" }))
+            .forEach(tecnologia => {
+                const opcion = document.createElement("option");
+
+                opcion.value = tecnologia;
+                opcion.textContent = `${tecnologia} (${usoTecnologias.get(tecnologia)})`;
+                filtroTecnologia.appendChild(opcion);
+            });
+
+        function crearFila(p, tecnologiaActiva) {
+            const tr = document.createElement("tr");
+
+            // Producto
+            const tdNombre = document.createElement("td");
+            const producto = elemento("div", "product");
+            const tile = elemento("span", "product-tile");
+            const nombre = elemento("span", "product-name", p.app);
+
+            tile.appendChild(monograma());
+            nombre.title = p.nombre;
+            producto.append(tile, nombre);
+
+            if (p.tipo === "academico") {
+                producto.appendChild(elemento("span", "badge-clase", "Clase"));
+            }
+
+            tdNombre.appendChild(producto);
+
+            // Descripción
+            const tdDescripcion = document.createElement("td");
+            tdDescripcion.appendChild(elemento("span", "description", p.descripcion));
+
+            // Dirección
+            const tdDireccion = document.createElement("td");
+            const enlace = elemento("a", "site-link", p.direccion);
+
+            enlace.href = `https://${p.direccion}`;
+            enlace.target = "_blank";
+            enlace.rel = "noopener";
+            enlace.appendChild(iconoEnlace());
+            tdDireccion.appendChild(enlace);
+
+            // Stack
+            const tdStack = document.createElement("td");
+            const lista = elemento("div", "stack");
+
+            p.stack.forEach((tecnologia, i) => {
+                const etiqueta = elemento("span", "stack-tag", tecnologia);
+
+                if (tecnologiaActiva && p.bases[i] === tecnologiaActiva) {
+                    etiqueta.classList.add("is-match");
+                }
+
+                lista.appendChild(etiqueta);
+            });
+
+            tdStack.appendChild(lista);
+
+            tr.append(tdNombre, tdDescripcion, tdDireccion, tdStack);
+
+            return tr;
+        }
+
+        function filaVacia() {
+            const fila = elemento("tr", "empty");
+            const celda = document.createElement("td");
+            const boton = elemento("button", "btn", "Quitar filtros");
+            const envoltorio = document.createElement("div");
+
+            celda.colSpan = 4;
+            celda.append(
+                elemento("strong", "", "Ningún producto coincide"),
+                elemento("span", "", "Prueba con otra búsqueda o quita los filtros.")
+            );
+
+            boton.type = "button";
+            boton.addEventListener("click", () => {
+                buscar.value = "";
+                filtroTecnologia.value = "";
+                filtroTipo.value = "";
+                actualizar();
+                buscar.focus();
+            });
+
+            envoltorio.appendChild(boton);
+            celda.appendChild(envoltorio);
+            fila.appendChild(celda);
+
+            return fila;
+        }
+
+        function actualizar() {
+            const texto = buscar.value.toLocaleLowerCase("es").trim();
+            const tecnologia = filtroTecnologia.value;
+            const tipo = filtroTipo.value;
+
+            const filtrados = datos.filter(p => {
+                const coincideTexto = [
+                    p.nombre,
+                    p.descripcion,
+                    p.direccion,
+                    p.stackTexto
+                ].some(v => v.toLocaleLowerCase("es").includes(texto));
+
+                const coincideTecnologia = !tecnologia || p.bases.includes(tecnologia);
+                const coincideTipo = !tipo || p.tipo === tipo;
+
+                return coincideTexto && coincideTecnologia && coincideTipo;
+            });
+
+            const claves = ["app", "descripcion", "direccion", "stackTexto"];
+            const clave = claves[ordenColumna];
+
+            filtrados.sort((a, b) =>
+                a[clave].localeCompare(b[clave], "es", {
+                    numeric: true,
+                    sensitivity: "base"
+                }) * ordenDireccion
+            );
+
+            const fragmento = document.createDocumentFragment();
+
+            if (filtrados.length === 0) {
+                fragmento.appendChild(filaVacia());
+            } else {
+                filtrados.forEach(p => fragmento.appendChild(crearFila(p, tecnologia)));
+            }
+
+            tbody.replaceChildren(fragmento);
+
+            document.querySelector("#contador").textContent = datos.length;
+
+            document.querySelector("#resultados").replaceChildren(
+                "Mostrando ",
+                elemento("span", "num", String(filtrados.length)),
+                " de ",
+                elemento("span", "num", String(datos.length)),
+                " productos"
+            );
+
+            cabeceras.forEach((th, i) => {
+                const activo = i === ordenColumna;
+
+                th.setAttribute(
+                    "aria-sort",
+                    activo
+                        ? (ordenDireccion === 1 ? "ascending" : "descending")
+                        : "none"
+                );
+
+                th.querySelector(".sort").textContent =
+                    activo ? (ordenDireccion === 1 ? "↑" : "↓") : "↕";
+            });
+        }
+
+        function ordenar(columna) {
+            if (ordenColumna === columna) {
+                ordenDireccion *= -1;
+            } else {
+                ordenColumna = columna;
+                ordenDireccion = 1;
+            }
+
+            actualizar();
+        }
+
+        cabeceras.forEach(th => {
+            const columna = Number(th.dataset.col);
+
+            th.addEventListener("click", () => ordenar(columna));
+
+            th.addEventListener("keydown", e => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    ordenar(columna);
+                }
+            });
+        });
+
+        buscar.addEventListener("input", actualizar);
+        filtroTecnologia.addEventListener("change", actualizar);
+        filtroTipo.addEventListener("change", actualizar);
+
+        // Modo claro y oscuro con data-theme en <html>, recordado en el navegador.
+        const raiz = document.documentElement;
+        const botonTema = document.querySelector("#tema");
+        const iconoTema = document.querySelector("#iconoTema");
+        const consultaOscuro = matchMedia("(prefers-color-scheme: dark)");
+
+        const ICONO_LUNA =
+            '<path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/>';
+
+        const ICONO_SOL =
+            '<circle cx="12" cy="12" r="4"/>' +
+            '<path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>';
+
+        function temaActual() {
+            const elegido = raiz.getAttribute("data-theme");
+
+            if (elegido === "dark" || elegido === "light") {
+                return elegido;
+            }
+
+            return consultaOscuro.matches ? "dark" : "light";
+        }
+
+        function pintarBotonTema() {
+            const oscuro = temaActual() === "dark";
+
+            iconoTema.innerHTML = oscuro ? ICONO_SOL : ICONO_LUNA;
+            botonTema.setAttribute(
+                "aria-label",
+                oscuro ? "Cambiar a modo claro" : "Cambiar a modo oscuro"
+            );
+        }
+
+        try {
+            const guardado = localStorage.getItem("vdg-tema");
+
+            if (guardado === "dark" || guardado === "light") {
+                raiz.setAttribute("data-theme", guardado);
+            }
+        } catch (e) {
+            // Sin almacenamiento: se usa el tema del sistema.
+        }
+
+        botonTema.addEventListener("click", () => {
+            const nuevo = temaActual() === "dark" ? "light" : "dark";
+
+            raiz.setAttribute("data-theme", nuevo);
+
+            try {
+                localStorage.setItem("vdg-tema", nuevo);
+            } catch (e) {
+                // Sin almacenamiento: el cambio dura hasta recargar.
+            }
+
+            pintarBotonTema();
+        });
+
+        consultaOscuro.addEventListener("change", pintarBotonTema);
+
+        pintarBotonTema();
+        actualizar();
+    </script>
+</body>
+</html>
